@@ -1,0 +1,92 @@
+﻿<Window x:Class="MicroChatClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MicroChatClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="750" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="Window_SizeChanged" Icon="ReSource/logo.png" Loaded="Window_Loaded">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--头部-->
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="MicroChat" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0" FontWeight="Bold" FontSize="20"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="&#xe61c;" FontFamily="ReSource/#iconfont" HorizontalAlignment="Right" FontSize="18"/>
+                <TextBlock Text="&#xe608;" FontFamily="ReSource/#iconfont" HorizontalAlignment="Right" Margin="15 0 15 0" FontSize="15" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+            </StackPanel>
+        </Grid>
+
+        <!--个人信息-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.9*"/>
+                <ColumnDefinition Width="4.1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Margin="15 0 0 0">
+                <Border Name="StateIcon" Background="#ADADAD" CornerRadius="15" Width="15" Height="15" Panel.ZIndex="1" Margin="50 50 10 0"/>
+                <Image Source="/ReSource/headportrait.png" Width="70" Height="70" HorizontalAlignment="Left" Stretch="Fill"/>
+            </Grid>
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <TextBox x:Name="txt_name" Text="chong.lu" FontSize="18" FontWeight="Medium" Width="120"/>
+                <TextBlock Text="离线" Name="State"  FontSize="16" Margin="0 5 0 0" Foreground="#ADADAD"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="Disconnect" Width="100" Click="Btn_Disconnect" Content="连接"/>
+            </StackPanel>
+        </Grid>
+
+        <!--下半部分-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:Card  materialDesign:ShadowAssist.ShadowDepth="Depth1" Grid.Column="1" Grid.Row="0" Padding="5 5 0 5"  Margin="15 0 15 10">
+                <ScrollViewer>
+                    <StackPanel Name="lbx_Inform" ></StackPanel>
+                </ScrollViewer>
+            </materialDesign:Card>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1" Grid.Column="0" Grid.Row="0" Padding="15 10 0 10"  Margin="15 0 0 10">
+                    <ScrollViewer>
+                        <StackPanel Name="lbx_Messages" ></StackPanel>
+                    </ScrollViewer>
+                </materialDesign:Card>
+
+                <!--发送信息-->
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+
+                    <TextBox Margin="15 0 10 10" Width="395" FontSize="16" Name="txtMessage" KeyDown="txtMessage_KeyDown" />
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" IsEnabled="False" x:Name="Btn_Send"  Margin="0 0 0 10" Width="110" Height="35"  Click="Btn_SendMessage">发送(Enter)</Button>
+                </StackPanel>
+
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</Window>

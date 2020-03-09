@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="MicroChat" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0" FontWeight="Bold" FontSize="20"/>
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBlock Text="&#xe61c;" FontFamily="ReSource/#iconfont" HorizontalAlignment="Right" FontSize="18"/>
+                <TextBlock Text="&#xe61c;" FontFamily="ReSource/#iconfont" HorizontalAlignment="Right" FontSize="18" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1"/>
                 <TextBlock Text="&#xe608;" FontFamily="ReSource/#iconfont" HorizontalAlignment="Right" Margin="15 0 15 0" FontSize="15" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
             </StackPanel>
         </Grid>
